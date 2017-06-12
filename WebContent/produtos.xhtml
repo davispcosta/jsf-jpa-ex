@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandLink value="Novo" action="produto"/>
+	</h:form>
+
+	<h:dataTable var="produto" value="#{produtoBean.produtos}">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			<h:outputText value="#{produto.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			<h:outputText value="#{produto.nome}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Preço</f:facet>
+			<h:outputText value="#{produto.preco}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Fabricante</f:facet>
+			<h:outputText value="#{produto.fabricante.nome}" />
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>

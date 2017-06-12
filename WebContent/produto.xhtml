@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel for="nome" value="Nome:" />
+			<h:inputText id="nome" value="#{produtoBean.produto.nome}" required="true"/>
+			<h:message for="nome" />
+			
+			<h:outputLabel for="preco" value="Preço:" />
+			<h:inputText id="preco" value="#{produtoBean.produto.preco}" required="true">
+				<f:validateDoubleRange minimum="0.0" />
+			</h:inputText>
+			<h:message for="preco" />
+			
+			<h:outputLabel for="fabricante" value="Fabricante:" />
+			<h:selectOneMenu id="fabricante" value="#{produtoBean.produto.fabricante.id}">
+				<f:selectItems
+					var="fabricante" 
+					value="#{fabricanteBean.fabricantes}"
+					itemValue="#{fabricante.id}"
+					itemLabel="#{fabricante.nome}" />
+			</h:selectOneMenu>
+			<h:message for="fabricante" />
+		</h:panelGrid>
+		
+		<h:commandButton action="#{produtoBean.inserir()}"  value="Enviar" />
+	</h:form>
+</h:body>
+</html>
